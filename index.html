@@ -450,7 +450,7 @@ video:"https://trbnvideo.live/e/JDISyCRX"
 ];
 
 // =====================================
-// PENGATURAN POPUNDER (DITAMBAHKAN)
+// PENGATURAN POPUNDER
 // =====================================
 document.addEventListener("click", function triggerPopunderOnce(e) {
     if(e.target.closest('#floatingPopup') || e.target.closest('#playerPage')) return;
@@ -526,7 +526,9 @@ document.getElementById("playerCategory").textContent = "Category: " + video.cat
 document.getElementById("videoFrame").src = video.video;
 
 window.scrollTo({top:0,behavior:"smooth"});
-history.pushState({page:"player",index:index},"","#watch-"+index);
+try {
+    history.pushState({page:"player",index:index},"","#watch-"+index);
+} catch(e) {}
 
 if(popupInterval) clearInterval(popupInterval);
 popupCount = 0;
@@ -574,7 +576,9 @@ document.querySelector(".search-wrap").style.display="block";
 
 closeFloatingPopup();
 
-history.pushState({page:"gallery"},"",window.location.pathname+window.location.search);
+try {
+    history.pushState({page:"gallery"},"",window.location.pathname);
+} catch(e) {}
 window.scrollTo({top:0,behavior:"smooth"});
 }
 
@@ -630,7 +634,7 @@ renderVideos();
 renderPopular();
 </script>
 
-<!-- SCRIPT TAMBAHAN: AUTO POPUNDER (DIRECT SCRIPT TAG) -->
+<!-- SCRIPT TAMBAHAN: AUTO POPUNDER -->
 <script src="https://pl30627583.profitableratecpmnetwork.com/d5/60/79/d56079c7788bd3e1f5be8a617ee76745.js"></script>
 
 </body>
