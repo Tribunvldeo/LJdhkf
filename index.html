@@ -8,12 +8,14 @@
 
 <style>
 :root{
---bg:#101827;
---panel:#172438;
---card:#1b2b42;
---text:#f2f5fa;
---muted:#9cabc0;
---accent:#e84b63;
+--bg:#0f172a;
+--panel:#1e293b;
+--card:#334155;
+--text:#f8fafc;
+--muted:#94a3b8;
+--accent:#06b6d4;
+--accent-hover:#0891b2;
+--secondary:#ec4899;
 }
 *{box-sizing:border-box}
 body{
@@ -23,8 +25,8 @@ font-family:Arial,sans-serif;
 }
 a{text-decoration:none;color:inherit}
 header{
-background:#142238;
-border-bottom:1px solid #293a50;
+background:#0f172a;
+border-bottom:1px solid #334155;
 position:sticky;top:0;z-index:20;
 }
 .topbar{
@@ -32,19 +34,24 @@ max-width:1200px;margin:auto;padding:15px;
 display:flex;align-items:center;
 justify-content:space-between;flex-wrap:wrap;gap:15px;
 }
-.logo{font-size:23px;font-weight:bold}
+.logo{font-size:23px;font-weight:bold;letter-spacing:0.5px}
 .logo span{color:var(--accent)}
 nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{font-size:13px;color:#c5d0df}
+nav a{font-size:13px;color:#cbd5e1;transition:.2s}
 nav a:hover{color:var(--accent)}
 .search-wrap{
 max-width:1200px;margin:auto;padding:0 15px 14px;
 }
 .search{
 width:100%;padding:13px;
-border:1px solid #34465e;
-background:#0d192a;color:white;
+border:1px solid #334155;
+background:#1e293b;color:white;
 border-radius:7px;font-size:14px;outline:none;
+transition:.2s;
+}
+.search:focus{
+border-color:var(--accent);
+box-shadow:0 0 0 2px rgba(6,182,212,0.25);
 }
 .container{
 max-width:1200px;margin:auto;padding:18px 15px;
@@ -56,10 +63,11 @@ padding:5px 0 18px;scrollbar-width:none;
 .category a{
 white-space:nowrap;background:var(--panel);
 padding:10px 15px;border-radius:5px;
-font-size:13px;color:#d7e0ed;
+font-size:13px;color:#cbd5e1;
+transition:.2s;
 }
 .category a.active,.category a:hover{
-background:var(--accent);color:white;
+background:var(--accent);color:#0f172a;font-weight:bold;
 }
 .section-title{
 font-size:19px;margin:15px 0;
@@ -75,13 +83,18 @@ grid-template-columns:repeat(4,minmax(0,1fr));
 gap:16px;
 }
 .video-card{
-background:var(--card);border-radius:7px;
+background:var(--card);border-radius:8px;
 overflow:hidden;cursor:pointer;transition:.2s;
+border:1px solid rgba(255,255,255,0.05);
 }
-.video-card:hover{transform:translateY(-3px)}
+.video-card:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 20px rgba(0,0,0,0.3);
+border-color:var(--accent);
+}
 .thumbnail{
 width:100%;aspect-ratio:16/10;
-position:relative;background:#26364d;overflow:hidden;
+position:relative;background:#1e293b;overflow:hidden;
 }
 .thumbnail img{
 width:100%;height:100%;object-fit:cover;
@@ -89,54 +102,68 @@ width:100%;height:100%;object-fit:cover;
 .play-icon{
 position:absolute;left:50%;top:50%;
 transform:translate(-50%,-50%);
-background:#000a;border-radius:50%;
+background:rgba(6,182,212,0.85);border-radius:50%;
 width:48px;height:48px;
 display:grid;place-items:center;
-font-size:21px;color:white;
+font-size:21px;color:#0f172a;
+box-shadow:0 0 12px rgba(6,182,212,0.5);
 }
-.video-info{padding:11px}
+.video-info{padding:12px}
 .video-info h3{
-font-size:14px;line-height:1.4;margin:0 0 7px;
+font-size:14px;line-height:1.4;margin:0 0 7px;color:#f8fafc;
 }
 .video-info p{
 font-size:11px;color:var(--muted);margin:0;
 }
 .tag{
-display:inline-block;font-size:10px;color:white;
+display:inline-block;font-size:10px;color:#0f172a;
 background:var(--accent);padding:4px 7px;
-border-radius:3px;margin-top:8px;
+border-radius:4px;margin-top:8px;font-weight:bold;
 }
 .load-more{
 display:block;margin:25px auto;padding:12px 30px;
-border:0;border-radius:5px;background:var(--accent);
-color:white;font-weight:bold;cursor:pointer;
+border:0;border-radius:6px;background:var(--accent);
+color:#0f172a;font-weight:bold;cursor:pointer;
+transition:.2s;
+}
+.load-more:hover{
+background:var(--accent-hover);
 }
 .popular{
 margin-top:35px;background:var(--panel);
-padding:16px;border-radius:7px;
+padding:16px;border-radius:8px;
+border:1px solid #334155;
 }
 .popular-item{
 display:flex;align-items:center;gap:12px;
-padding:10px 0;border-bottom:1px solid #34465e;
-cursor:pointer;
+padding:10px 0;border-bottom:1px solid #334155;
+cursor:pointer;transition:.2s;
+}
+.popular-item:hover{
+background:rgba(255,255,255,0.03);
 }
 .popular-item img{
 width:90px;height:58px;object-fit:cover;
 border-radius:4px;
 }
-.popular-item h4{font-size:13px;margin:0 0 5px}
+.popular-item h4{font-size:13px;margin:0 0 5px;color:#f8fafc}
 .popular-item small{color:var(--muted)}
 footer{
 margin-top:35px;padding:25px 15px;
-background:#0c1625;text-align:center;
+background:#090d16;text-align:center;
 color:var(--muted);font-size:12px;
+border-top:1px solid #1e293b;
 }
 .theme-buttons{
 display:flex;gap:8px;flex-wrap:wrap;margin:15px 0;
 }
 .theme-buttons button{
-border:0;padding:8px 13px;border-radius:4px;
-cursor:pointer;background:#293c55;color:white;
+border:0;padding:8px 13px;border-radius:5px;
+cursor:pointer;background:#334155;color:white;
+font-weight:500;transition:.2s;
+}
+.theme-buttons button:hover{
+background:var(--accent);color:#0f172a;
 }
 
 /* PEMUTAR VIDEO */
@@ -148,22 +175,22 @@ margin:10px 0 15px;
 }
 .back-button{
 border:0;background:var(--accent);
-color:white;padding:10px 16px;
-border-radius:5px;cursor:pointer;
+color:#0f172a;padding:10px 16px;
+border-radius:5px;cursor:pointer;font-weight:bold;
 }
 
 /* CONTAINER PEMUTAR */
 .player-box{
 width:100%;background:#000;
 border-radius:8px;overflow:hidden;
-position:relative;
+position:relative;box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
 .player-frame{
 width:100%;aspect-ratio:16/9;
 border:0;display:block;background:#000;
 }
 .player-title{
-font-size:18px;margin:15px 0 7px;
+font-size:18px;margin:15px 0 7px;color:#f8fafc;
 }
 .player-category{
 font-size:12px;color:var(--muted);
@@ -171,11 +198,11 @@ margin-bottom:15px;
 }
 .push-area{
 margin:18px 0;padding:15px;
-border:1px solid #34465e;
+border:1px solid #334155;
 background:var(--panel);
 border-radius:7px;
 }
-.push-area h3{font-size:14px;margin:0 0 8px}
+.push-area h3{font-size:14px;margin:0 0 8px;color:#f8fafc}
 .push-area p{
 font-size:12px;color:var(--muted);margin:0;
 }
@@ -188,7 +215,7 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-background: rgba(16, 24, 39, 0.92);
+background: rgba(15, 23, 42, 0.92);
 z-index: 99;
 display: none;
 cursor: pointer;
@@ -205,14 +232,14 @@ max-width: 380px;
 background: var(--panel);
 border: 2px solid var(--accent);
 border-radius: 10px;
-box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+box-shadow: 0 0 25px rgba(6,182,212,0.3);
 overflow: hidden;
 text-align: center;
 }
 
 .popup-header {
 background: var(--accent);
-color: white;
+color: #0f172a;
 padding: 10px 14px;
 font-size: 14px;
 font-weight: bold;
@@ -223,7 +250,7 @@ align-items: center;
 .popup-close {
 background: none;
 border: none;
-color: white;
+color: #0f172a;
 font-size: 18px;
 cursor: pointer;
 font-weight: bold;
@@ -240,7 +267,7 @@ line-height: 1.4;
 .popup-btn {
 display: inline-block;
 background: var(--accent);
-color: white;
+color: #0f172a;
 padding: 10px 24px;
 border-radius: 5px;
 font-size: 14px;
@@ -304,11 +331,11 @@ oninput="searchVideos()">
 </div>
 
 <div class="theme-buttons">
-<button onclick="setTheme('#101827','#e84b63')">Default</button>
-<button onclick="setTheme('#111','#e74c3c')">Dark</button>
-<button onclick="setTheme('#202020','#8e44ad')">Purple</button>
-<button onclick="setTheme('#142d25','#27ae60')">Green</button>
-<button onclick="setTheme('#172438','#f39c12')">Orange</button>
+<button onclick="setTheme('#0f172a','#06b6d4')">Default (Cyan)</button>
+<button onclick="setTheme('#0b0f19','#e84b63')">Crimson Dark</button>
+<button onclick="setTheme('#181024','#a855f7')">Electric Purple</button>
+<button onclick="setTheme('#061c14','#10b981')">Emerald Green</button>
+<button onclick="setTheme('#1c1305','#f59e0b')">Warm Amber</button>
 </div>
 
 <div class="section-title" id="gallery">
@@ -388,70 +415,77 @@ Video Title
 // =====================================
 // KONFIGURASI IKLAN DAN SMARTLINK
 // =====================================
-const SMARTLINK_URL = "https://uplcm.com/4/11744117";
+const SMARTLINK_URL = "https://www.profitableratecpmnetwork.com/agijdjkf?key=b68403d796344c04660419b144a9cea4";
 let popupInterval = null;
 let popupCount = 0;
 const MAX_POPUP_COUNT = 4;
 
 // =====================================
-// DATABASE VIDEO
+// DATABASE VIDEO (Diperbarui dengan link baru)
 // =====================================
 const videos = [
 {
 title:"adik ipar dengan gaya bebasnya",
 category:"Hits",
-image:"https://imgds.net/snaps/obok9a4e7fa5hj78.jpg",
-video:"https://trbnvideo.live/e/iyg2oexJ",
+image:"https://i.ibb.co.com/ZRNzfsBZ/1794065554289.jpg",
+video:"https://trbnvideo.live/e/xu2NosiK",
 popular:true
 },
 {
 title:"gadis sma viral",
 category:"Stories",
-image:"https://imgds.net/snaps/6ixg10877mh5nhsg.jpg",
-video:"https://trbnvideo.live/e/JUP4l947",
+image:"https://i.ibb.co.com/HL642d4v/1794065512745.jpg",
+video:"https://trbnvideo.live/e/pO4cSdP0",
 popular:true
 },
 {
 title:"diam tapi mematikan",
 category:"Pictures",
-image:"https://imgds.net/snaps/f67pqcvbe1892s72.jpg",
-video:"https://trbnvideo.live/e/IYPUg0Lc"
+image:"https://i.ibb.co.com/N2MmDGq6/1794052934112.jpg",
+video:"https://trbnvideo.live/e/RjGbpB06"
 },
 {
 title:"samping rumah sangat menggoda",
 category:"Live",
-image:"https://imgds.net/snaps/37wx6tkhvzpss0iw.jpg",
-video:"https://trbnvideo.live/e/i9xSMyDn"
+image:"https://i.ibb.co.com/bMJ28Pqt/1794052892613.jpg",
+video:"https://trbnvideo.live/e/4uJAgGZQ"
 },
 {
 title:"Dibiki lemas sama om",
 category:"Movies",
-image:"https://imgds.net/snaps/8p806sumzkfud1tq.jpg",
-video:"https://trbnvideo.live/e/544Gn27Y"
+image:"https://i.ibb.co.com/ZpRdDhzF/Full-video-link-check-bio.jpg",
+video:"https://trbnvideo.live/e/J6RcJH7d"
 },
 {
 title:"suasananya berubah jadi tegang",
 category:"Series",
-image:"https://imgds.net/snaps/wp08ue4abrwzb9xx.jpg",
-video:"https://trbnvideo.live/e/5r7AWdNn"
+image:"https://i.ibb.co.com/4nfQMcLP/watch-xvideo-BIO-SITES.jpg",
+video:"https://trbnvideo.live/e/Niik9FYz"
 },
 {
 title:"desahannya bikin kangen",
 category:"Stories",
-image:"https://imgds.net/snaps/dy5bachnvzq8zsy0.jpg",
-video:"https://trbnvideo.live/e/Jn5ku3Fg"
+image:"https://i.ibb.co.com/JWZZdLBL/Cerita-Indehoy-Lonte-Yang-Mengambil-Keperjakaan.jpg",
+video:"https://trbnvideo.live/e/iyg2oexJ"
 },
 {
 title:"abg jaman sekarang",
 category:"Anime",
-image:"https://imgds.net/snaps/6a4ijvxuu6yqlnfn.jpg",
-video:"https://trbnvideo.live/e/vU7kJaG7"
+image:"https://i.ibb.co.com/WW30p4mr/ff3c7197-7437-4e97-acd6-fbe40ff79434.jpg",
+video:"https://trbnvideo.live/e/xuUHq1Wh"
 },
 {
 title:"pesona malam hari",
 category:"Comedy",
-image:"https://imgds.net/snaps/tij615g1syp39c0u.jpg",
-video:"https://trbnvideo.live/e/iyg2oexJ"
+image:"https://i.ibb.co.com/9kfTQHxK/The-Ultimate-Girlfriend-Goals-Inspo-You-Need.jpg",
+video:"https://trbnvideo.live/e/xu2NosiK"
+},
+{
+title:"pesona tambahan terbaru",
+category:"Hits",
+image:"https://i.ibb.co.com/9mpyv5Rz/Sinta.jpg",
+video:"https://trbnvideo.live/e/pO4cSdP0",
+popular:true
 }
 ];
 
@@ -641,7 +675,7 @@ renderPopular();
 </script>
 
 <!-- SCRIPT TAMBAHAN: AUTO POPUNDER -->
-<script>(function(s){s.dataset.zone='11740128',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script src="https://pl30627583.profitableratecpmnetwork.com/d5/60/79/d56079c7788bd3e1f5be8a617ee76745.js"></script>
 
 </body>
 </html>
