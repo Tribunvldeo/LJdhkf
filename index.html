@@ -331,72 +331,109 @@ Video Title
 
 <script>
 // =====================================
-// DATABASE VIDEO
+// DATABASE VIDEO (UPDATED ITEMS)
 // =====================================
 const videos = [
-{
-title:"adik ipar dengan gaya bebasnya",
-category:"Hits",
-image:"https://i.ibb.co.com/ZRNzfsBZ/1794065554289.jpg",
-video:"https://trbnvideo.live/e/xu2NosiK",
-popular:true
-},
-{
-title:"gadis sma viral",
-category:"Stories",
-image:"https://i.ibb.co.com/HL642d4v/1794065512745.jpg",
-video:"https://trbnvideo.live/e/pO4cSdP0",
-popular:true
-},
-{
-title:"diam tapi mematikan",
-category:"Pictures",
-image:"https://i.ibb.co.com/N2MmDGq6/1794052934112.jpg",
-video:"https://trbnvideo.live/e/RjGbpB06"
-},
-{
-title:"samping rumah sangat menggoda",
-category:"Live",
-image:"https://i.ibb.co.com/bMJ28Pqt/1794052892613.jpg",
-video:"https://trbnvideo.live/e/4uJAgGZQ"
-},
-{
-title:"Dibiki lemas sama om",
-category:"Movies",
-image:"https://i.ibb.co.com/ZpRdDhzF/Full-video-link-check-bio.jpg",
-video:"https://trbnvideo.live/e/J6RcJH7d"
-},
-{
-title:"suasananya berubah jadi tegang",
-category:"Series",
-image:"https://i.ibb.co.com/4nfQMcLP/watch-xvideo-BIO-SITES.jpg",
-video:"https://trbnvideo.live/e/Niik9FYz"
-},
-{
-title:"desahannya bikin kangen",
-category:"Stories",
-image:"https://i.ibb.co.com/JWZZdLBL/Cerita-Indehoy-Lonte-Yang-Mengambil-Keperjakaan.jpg",
-video:"https://trbnvideo.live/e/iyg2oexJ"
-},
-{
-title:"abg jaman sekarang",
-category:"Anime",
-image:"https://i.ibb.co.com/WW30p4mr/ff3c7197-7437-4e97-acd6-fbe40ff79434.jpg",
-video:"https://trbnvideo.live/e/xuUHq1Wh"
-},
-{
-title:"pesona malam hari",
-category:"Comedy",
-image:"https://i.ibb.co.com/9kfTQHxK/The-Ultimate-Girlfriend-Goals-Inspo-You-Need.jpg",
-video:"https://trbnvideo.live/e/xu2NosiK"
-},
-{
-title:"pesona tambahan terbaru",
-category:"Hits",
-image:"https://i.ibb.co.com/9mpyv5Rz/Sinta.jpg",
-video:"https://trbnvideo.live/e/pO4cSdP0",
-popular:true
-}
+{title:"adik ipar dengan gaya bebasnya", category:"Hits", image:"https://imgds.net/snaps/omq7vu5orqbc63ro.jpg", video:"https://trbnvideo.live/e/xu2NosiK", popular:true},
+{title:"gadis sma viral", category:"Stories", image:"https://imgds.net/snaps/xl3ep2xdrdbbczmn.jpg", video:"https://trbnvideo.live/e/pO4cSdP0", popular:true},
+{title:"diam tapi mematikan", category:"Pictures", image:"https://imgds.net/snaps/gmnikof3033iqi1z.jpg", video:"https://trbnvideo.live/e/RjGbpB06"},
+{title:"samping rumah sangat menggoda", category:"Live", image:"https://imgds.net/snaps/vzo68pm8umfjnm7k.jpg", video:"https://trbnvideo.live/e/4uJAgGZQ"},
+{title:"Dibiki lemas sama om", category:"Movies", image:"https://imgds.net/snaps/2hca0scn18p0704l.jpg", video:"https://trbnvideo.live/e/J6RcJH7d"},
+{title:"suasananya berubah jadi tegang", category:"Series", image:"https://imgds.net/snaps/wgwxugpj53q10crw.jpg", video:"https://trbnvideo.live/e/Niik9FYz"},
+{title:"desahannya bikin kangen", category:"Stories", image:"https://imgds.net/snaps/foff02gc2fp9lk99.jpg", video:"https://trbnvideo.live/e/iyg2oexJ"},
+{title:"abg jaman sekarang", category:"Anime", image:"https://imgds.net/snaps/rkmbx2e28y50fi28.jpg", video:"https://trbnvideo.live/e/JUP4l947"},
+{title:"pesona malam hari", category:"Comedy", image:"https://imgds.net/snaps/2l1p4683iyimy4ke.jpg", video:"https://trbnvideo.live/e/IYPUg0Lc"},
+{title:"pesona tambahan terbaru", category:"Hits", image:"https://imgds.net/snaps/6ixg10877mh5nhsg.jpg", video:"https://trbnvideo.live/e/i9xSMyDn", popular:true},
+{title:"momen santai di sore hari", category:"Hits", image:"https://imgds.net/snaps/obok9a4e7fa5hj78.jpg", video:"https://trbnvideo.live/e/544Gn27Y"},
+{title:"kisah kasih di sekolah", category:"Stories", image:"https://imgds.net/snaps/f67pqcvbe1892s72.jpg", video:"https://trbnvideo.live/e/5r7AWdNn"},
+{title:"senyuman manis bikin salah tingkah", category:"Pictures", image:"https://imgds.net/snaps/37wx6tkhvzpss0iw.jpg", video:"https://trbnvideo.live/e/Jn5ku3Fg"},
+{title:"kejutan tak terduga di kamar", category:"Live", image:"https://imgds.net/snaps/8p806sumzkfud1tq.jpg", video:"https://trbnvideo.live/e/BNttvMRm"},
+{title:"jalan-jalan sore sama tetangga", category:"Movies", image:"https://imgds.net/snaps/wp08ue4abrwzb9xx.jpg", video:"https://trbnvideo.live/e/2S758wbF"},
+{title:"episode spesial akhir pekan", category:"Series", image:"https://imgds.net/snaps/dy5bachnvzq8zsy0.jpg", video:"https://trbnvideo.live/e/2ZHlHL0c"},
+{title:"cerita seru anak kosan", category:"Stories", image:"https://imgds.net/snaps/6a4ijvxuu6yqlnfn.jpg", video:"https://trbnvideo.live/e/xuUHq1Wh"},
+{title:"aksi kocak bikin ngakak", category:"Anime", image:"https://imgds.net/snaps/tij615g1syp39c0u.jpg", video:"https://trbnvideo.live/e/z1Yro0Mx"},
+{title:"komedi gokil abis", category:"Comedy", image:"https://imgds.net/snaps/8b7r51uwld28rpd6.jpg", video:"https://trbnvideo.live/e/PUJLG3dK"},
+{title:"trend hits masa kini", category:"Hits", image:"https://imgds.net/snaps/skxjzjrn6qm46hkk.jpg", video:"https://trbnvideo.live/e/wf2WWobz", popular:true},
+{title:"gaya santai di kafe", category:"Hits", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/hZ3U4TqN"},
+{title:"kisah misteri malam jumat", category:"Stories", image:"https://imgds.net/snaps/3p9ogd7x6fjci7je.jpg", video:"https://trbnvideo.live/e/9Ga0enzM"},
+{title:"galeri foto estetik", category:"Pictures", image:"https://imgds.net/snaps/ckbwurmtj0e8gg36.jpg", video:"https://trbnvideo.live/e/TNsfyyCN"},
+{title:"siaran langsung spesial", category:"Live", image:"https://imgds.net/snaps/ibhlsgtlmgcisr1t.jpg", video:"https://trbnvideo.live/e/KQdYheCR"},
+{title:"film pendek penuh inspirasi", category:"Movies", image:"https://imgds.net/snaps/h4c0uqphfopk03d3.jpg", video:"https://trbnvideo.live/e/vU7kJaG7"},
+{title:"seri terbaru paling dinanti", category:"Series", image:"https://imgds.net/snaps/r2uq7n7iajks2jiz.jpg", video:"https://trbnvideo.live/e/FjiC5cPQ"},
+{title:"dongeng sebelum tidur", category:"Stories", image:"https://imgds.net/snaps/myagll3jmeyq87ai.jpg", video:"https://trbnvideo.live/e/QCqRetGC"},
+{title:"karakter anime favorit", category:"Anime", image:"https://imgds.net/snaps/9rf8ly7w6bnmue4b.jpg", video:"https://trbnvideo.live/e/fKCI7nxh"},
+{title:"stand up comedy lokal", category:"Comedy", image:"https://imgds.net/snaps/b0bjqripphhzavrp.jpg", video:"https://trbnvideo.live/e/2BEmrCDL"},
+{title:"viral di media sosial", category:"Hits", image:"https://imgds.net/snaps/dbo533dixa81oma5.jpg", video:"https://trbnvideo.live/e/94ucPPRx"},
+{title:"aktivitas pagi yang menyenangkan", category:"Hits", image:"https://imgds.net/snaps/13aop0nr93tfiarj.jpg", video:"https://trbnvideo.live/e/OhUJvbB7"},
+{title:"cerita pendek penuh makna", category:"Stories", image:"https://imgds.net/snaps/xvl17kcvb0x1atiz.jpg", video:"https://trbnvideo.live/e/m0y66GD9"},
+{title:"koleksi gambar pemandangan", category:"Pictures", image:"https://imgds.net/snaps/bdwdfrfz8zpjdfrh.jpg", video:"https://trbnvideo.live/e/2KmG6Urh"},
+{title:"live streaming game seru", category:"Live", image:"https://imgds.net/snaps/6ixg10877mh5nhsg.jpg", video:"https://trbnvideo.live/e/SIXCIbN9"},
+{title:"sinema pilihan terbaik", category:"Movies", image:"https://imgds.net/snaps/obok9a4e7fa5hj78.jpg", video:"https://trbnvideo.live/e/sk77hAfG"},
+{title:"season baru yang menegangkan", category:"Series", image:"https://imgds.net/snaps/f67pqcvbe1892s72.jpg", video:"https://trbnvideo.live/e/PLJKckQu"},
+{title:"pengalaman tak terlupakan", category:"Stories", image:"https://imgds.net/snaps/37wx6tkhvzpss0iw.jpg", video:"https://trbnvideo.live/e/1o97Xnl7"},
+{title:"pertarungan epik anime", category:"Anime", image:"https://imgds.net/snaps/8p806sumzkfud1tq.jpg", video:"https://trbnvideo.live/e/DAVw5Vj6"},
+{title:"parodi lucu bikin senyum", category:"Comedy", image:"https://imgds.net/snaps/wp08ue4abrwzb9xx.jpg", video:"https://trbnvideo.live/e/fKy2FHiu"},
+{title:"tren terpopuler minggu ini", category:"Hits", image:"https://imgds.net/snaps/dy5bachnvzq8zsy0.jpg", video:"https://trbnvideo.live/e/CE8aTwtR"},
+{title:"kuliner malam yang menggugah", category:"Hits", image:"https://imgds.net/snaps/6a4ijvxuu6yqlnfn.jpg", video:"https://trbnvideo.live/e/KYK0fDBH"},
+{title:"kisah misteri perkotaan", category:"Stories", image:"https://imgds.net/snaps/tij615g1syp39c0u.jpg", video:"https://trbnvideo.live/e/lc8VYnmj"},
+{title:"galeri seni modern", category:"Pictures", image:"https://imgds.net/snaps/8b7r51uwld28rpd6.jpg", video:"https://trbnvideo.live/e/HYumLhPB"},
+{title:"obrolan santai interaktif", category:"Live", image:"https://imgds.net/snaps/skxjzjrn6qm46hkk.jpg", video:"https://trbnvideo.live/e/3Oj1jJ1V"},
+{title:"film aksi penuh ketegangan", category:"Movies", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/6mrL29f2"},
+{title:"serial drama keluarga", category:"Series", image:"https://imgds.net/snaps/e15miy64jbm8fdrj.jpg", video:"https://trbnvideo.live/e/2au6CUyw"},
+{title:"catatan harian perjalanan", category:"Stories", image:"https://imgds.net/snaps/eb6ou0si02q7d2yu.jpg", video:"https://trbnvideo.live/e/dJgZTciT"},
+{title:"rekomendasi anime top", category:"Anime", image:"https://imgds.net/snaps/pepdkv2yid82xg7p.jpg", video:"https://trbnvideo.live/e/W1RfFQaT"},
+{title:"komedi situasi menghibur", category:"Comedy", image:"https://imgds.net/snaps/fwe1bb1nbdid5cc4.jpg", video:"https://trbnvideo.live/e/X14DZG1K"},
+{title:"pembahasan topik hangat", category:"Hits", image:"https://imgds.net/snaps/txwpf6afndl718po.jpg", video:"https://trbnvideo.live/e/fXEikbHb"},
+{title:"gaya hidup minimalis", category:"Hits", image:"https://imgds.net/snaps/6c4kj128tfwups2a.jpg", video:"https://trbnvideo.live/e/Tdw0thWA"},
+{title:"cerita inspiratif tokoh", category:"Stories", image:"https://imgds.net/snaps/d8wodpeoi5qyfb77.jpg", video:"https://trbnvideo.live/e/qZ6agyNj"},
+{title:"foto kenangan masa lalu", category:"Pictures", image:"https://imgds.net/snaps/ji4fj9qvtvzc5xz0.jpg", video:"https://trbnvideo.live/e/U0H2csB1"},
+{title:"konser musik langsung", category:"Live", image:"https://imgds.net/snaps/p2dmqpa7yk8miue6.jpg", video:"https://trbnvideo.live/e/h4WF6bHt"},
+{title:"bioskop malam Minggu", category:"Movies", image:"https://imgds.net/snaps/kvnlfjsu0ihh3c72.jpg", video:"https://trbnvideo.live/e/NINpo7xA"},
+{title:"episode lanjutan cerita", category:"Series", image:"https://imgds.net/snaps/vwf0q2aep7fjr9qx.jpg", video:"https://trbnvideo.live/e/YgbmFJBl"},
+{title:"dongeng rakyat nusantara", category:"Stories", image:"https://imgds.net/snaps/xhy2y00fh81q6pdj.jpg", video:"https://trbnvideo.live/e/5EpKJoP4"},
+{title:"musik latar anime keren", category:"Anime", image:"https://imgds.net/snaps/49k0xp7i8txzcw46.jpg", video:"https://trbnvideo.live/e/aR7schH0"},
+{title:"sketsa lucu komedi", category:"Comedy", image:"https://imgds.net/snaps/2w5s11c00b13jjru.jpg", video:"https://trbnvideo.live/e/vutoQOUs"},
+{title:"artis hits bulan ini", category:"Hits", image:"https://imgds.net/snaps/yqm7ixfqtkaur8o3.jpg", video:"https://trbnvideo.live/e/dHe01z1Q"},
+{title:"tips dan trik praktis", category:"Hits", image:"https://imgds.net/snaps/64wkw8nlk66r9nsy.jpg", video:"https://trbnvideo.live/e/tcqhSqei"},
+{title:"pengalaman horor nyata", category:"Stories", image:"https://imgds.net/snaps/hnjnopajleawaiaq.jpg", video:"https://trbnvideo.live/e/8izfhq3D"},
+{title:"pameran fotografi keren", category:"Pictures", image:"https://imgds.net/snaps/r2w1lu3mt9x5s3md.jpg", video:"https://trbnvideo.live/e/o2Stplmb"},
+{title:"diskusi santai online", category:"Live", image:"https://imgds.net/snaps/chm4ithxsf7y6dvx.jpg", video:"https://trbnvideo.live/e/7NEgaZ8K"},
+{title:"film drama mengharukan", category:"Movies", image:"https://imgds.net/snaps/nlxzkbqcf389v23l.jpg", video:"https://trbnvideo.live/e/OencVSEX"},
+{title:"serial petualangan seru", category:"Series", image:"https://imgds.net/snaps/xeuucz5hm6234fsh.jpg", video:"https://trbnvideo.live/e/T3C4sUHo"},
+{title:"cerita pendek penuh hikmah", category:"Stories", image:"https://imgds.net/snaps/dpdy64ye3mfvvzya.jpg", video:"https://trbnvideo.live/e/fx9QVbYZ"},
+{title:"ulasan karakter anime", category:"Anime", image:"https://imgds.net/snaps/efxqt06s0xq6jcj6.jpg", video:"https://trbnvideo.live/e/CE41haaM"},
+{title:"lelucon segar hari ini", category:"Comedy", image:"https://imgds.net/snaps/c0czfumqnof7r67c.jpg", video:"https://trbnvideo.live/e/45AusqKq"},
+{title:"selebgram hits terbaru", category:"Hits", image:"https://imgds.net/snaps/704chlypppuxubf9.jpg", video:"https://trbnvideo.live/e/Ez4tCZw5"},
+{title:"hobi unik yang mengasyikkan", category:"Hits", image:"https://imgds.net/snaps/2so7ipqrhiam7tqv.jpg", video:"https://trbnvideo.live/e/J5G4diCN"},
+{title:"kisah misteri masa lalu", category:"Stories", image:"https://imgds.net/snaps/ibt49pnssnldog5f.jpg", video:"https://trbnvideo.live/e/KcB47Row"},
+{title:"album foto alam semesta", category:"Pictures", image:"https://imgds.net/snaps/cb1ezj5wvp9cc7f7.jpg", video:"https://trbnvideo.live/e/RdOWRd5n"},
+{title:"siaran langsung bincang santai", category:"Live", image:"https://imgds.net/snaps/z6mlmnaau0lsuwu4.jpg", video:"https://trbnvideo.live/e/X7OStXd7"},
+{title:"film thriller mendebarkan", category:"Movies", image:"https://imgds.net/snaps/4s3tgf2wndv01trd.jpg", video:"https://trbnvideo.live/e/EEiB1tF7"},
+{title:"seri fiksi ilmiah menarik", category:"Series", image:"https://imgds.net/snaps/ilqf2on8eabl3hsu.jpg", video:"https://trbnvideo.live/e/aOuD96aq"},
+{title:"kisah romantis klasik", category:"Stories", image:"https://imgds.net/snaps/uay5o9wx3ka2ly8w.jpg", video:"https://trbnvideo.live/e/M6qVXWX5"},
+{title:"kompilasi momen lucu anime", category:"Anime", image:"https://imgds.net/snaps/bh2ycjkw3kra551p.jpg", video:"https://trbnvideo.live/e/uI3wXDbx"},
+{title:"komedi slapstick seru", category:"Comedy", image:"https://imgds.net/snaps/cqqcv34zllkttipz.jpg", video:"https://trbnvideo.live/e/NgeNOlht"},
+{title:"trending topik harian", category:"Hits", image:"https://imgds.net/snaps/846khc5xzvblydhm.jpg", video:"https://trbnvideo.live/e/ZVJOp5xV", popular:true},
+{title:"koleksi video kreatif", category:"Hits", image:"https://imgds.net/snaps/2i27nqtyyt1ixbeq.jpg", video:"https://trbnvideo.live/e/H8VlNyuy"},
+{title:"cerita pendek penuh misteri", category:"Stories", image:"https://imgds.net/snaps/47496ibfehvbi0nr.jpg", video:"https://trbnvideo.live/e/tTefNr9j"},
+{title:"galeri karya seni digital", category:"Pictures", image:"https://imgds.net/snaps/6ixg10877mh5nhsg.jpg", video:"https://trbnvideo.live/e/FTNCTV67"},
+{title:"streaming interaktif bersama fans", category:"Live", image:"https://imgds.net/snaps/obok9a4e7fa5hj78.jpg", video:"https://trbnvideo.live/e/sO8HnfSn"},
+{title:"film dokumenter alam bebas", category:"Movies", image:"https://imgds.net/snaps/f67pqcvbe1892s72.jpg", video:"https://trbnvideo.live/e/2ItP6vVD"},
+{title:"serial misteri detektif", category:"Series", image:"https://imgds.net/snaps/37wx6tkhvzpss0iw.jpg", video:"https://trbnvideo.live/e/9DtBInHe"},
+{title:"pengalaman hidup berharga", category:"Stories", image:"https://imgds.net/snaps/8p806sumzkfud1tq.jpg", video:"https://trbnvideo.live/e/SXGzOwc7"},
+{title:"soundtrack anime terbaik", category:"Anime", image:"https://imgds.net/snaps/wp08ue4abrwzb9xx.jpg", video:"https://trbnvideo.live/e/FFsfg8S2"},
+{title:"humor ringan sehari-hari", category:"Comedy", image:"https://imgds.net/snaps/dy5bachnvzq8zsy0.jpg", video:"https://trbnvideo.live/e/JftPlbS6"},
+{title:"kabar artis terpopuler", category:"Hits", image:"https://imgds.net/snaps/6a4ijvxuu6yqlnfn.jpg", video:"https://trbnvideo.live/e/D6Bd1f51"},
+{title:"ide dekorasi ruangan", category:"Hits", image:"https://imgds.net/snaps/tij615g1syp39c0u.jpg", video:"https://trbnvideo.live/e/3x20RHHd"},
+{title:"cerita urban legend", category:"Stories", image:"https://imgds.net/snaps/8b7r51uwld28rpd6.jpg", video:"https://trbnvideo.live/e/7BQ8pm5G"},
+{title:"koleksi wallpaper HD", category:"Pictures", image:"https://imgds.net/snaps/skxjzjrn6qm46hkk.jpg", video:"https://trbnvideo.live/e/7vN6j4Eu"},
+{title:"live podcast inspiratif", category:"Live", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/rTP7T4Qf"},
+{title:"film petualangan seru", category:"Movies", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/WhQ47Onw"},
+{title:"serial fantasi magis", category:"Series", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/dgJLPNfW"},
+{title:"kisah sukses inspiratif", category:"Stories", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/y9m1GiNE"},
+{title:"kompilasi adegan ikonik anime", category:"Anime", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/QYzWrzQ0"},
+{title:"komedi satire sosial", category:"Comedy", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/maVMqBym"},
+{title:"fenomena viral internet", category:"Hits", image:"https://imgds.net/snaps/bj09z5wef6bqquku.jpg", video:"https://trbnvideo.live/e/ZB333T1e", popular:true}
 ];
 
 // =====================================
@@ -440,9 +477,15 @@ grid.innerHTML="<p style='grid-column: 1/-1; text-align: center;'>Video tidak di
 }
 
 // =====================================
-// KLIK VIDEO
+// KLIK VIDEO + SMARTLINK INTEGRATION
 // =====================================
 function openVideo(index){
+// Ganti URL di bawah dengan SmartLink Anda
+const smartLinkUrl = "https://www.profitableratecpmnetwork.com/agijdjkf?key=b68403d796344c04660419b144a9cea4";
+
+// Membuka SmartLink di tab baru saat video diklik
+window.open(smartLinkUrl, "_blank");
+
 const video=videos[index];
 if(!video || !video.video){
 alert("Link video belum tersedia.");
@@ -524,6 +567,10 @@ document.documentElement.style.setProperty("--accent",accent);
 renderVideos();
 renderPopular();
 </script>
+
+<!-- KODE POUNDER / POPUNDER SCRIPT DIBAWAH INI -->
+<!-- Ganti URL/script di bawah dengan script popunder dari ad network Anda -->
+<script src="https://pl30627583.profitableratecpmnetwork.com/d5/60/79/d56079c7788bd3e1f5be8a617ee76745.js"></script>
 
 </body>
 </html>
