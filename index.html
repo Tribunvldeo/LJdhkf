@@ -120,15 +120,47 @@ display:inline-block;font-size:10px;color:#0f172a;
 background:var(--accent);padding:4px 7px;
 border-radius:4px;margin-top:8px;font-weight:bold;
 }
-.load-more{
-display:block;margin:25px auto;padding:12px 30px;
-border:0;border-radius:6px;background:var(--accent);
-color:#0f172a;font-weight:bold;cursor:pointer;
+
+/* PAGINATION STYLING */
+.pagination{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:6px;
+margin:30px 0;
+flex-wrap:wrap;
+}
+.page-btn{
+background:var(--panel);
+border:1px solid #334155;
+color:#cbd5e1;
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
+font-size:13px;
+font-weight:bold;
 transition:.2s;
 }
-.load-more:hover{
-background:var(--accent-hover);
+.page-btn:hover{
+background:var(--accent);
+color:#0f172a;
+border-color:var(--accent);
 }
+.page-btn.active{
+background:var(--accent);
+color:#0f172a;
+border-color:var(--accent);
+}
+.page-btn:disabled{
+opacity:0.4;
+cursor:not-allowed;
+}
+.page-btn:disabled:hover{
+background:var(--panel);
+color:#cbd5e1;
+border-color:#334155;
+}
+
 .popular{
 margin-top:35px;background:var(--panel);
 padding:16px;border-radius:8px;
@@ -277,8 +309,8 @@ oninput="searchVideos()">
 
 <div class="video-grid" id="videoGrid"></div>
 
-<button class="load-more" id="loadMore"
-onclick="loadMore()">Video selanjutnya</button>
+<!-- PAGINATION CONTAINER -->
+<div class="pagination" id="pagination"></div>
 
 <section class="popular" id="popular">
 <div class="section-title">
@@ -437,12 +469,13 @@ const videos = [
 ];
 
 // =====================================
-// TAMPILAN GALERI
+// TAMPILAN GALERI & PAGINASI
 // =====================================
-let activeCategory="All";
-let visibleCount=8;
+let activeCategory = "All";
+let currentPage = 1;
+const itemsPerPage = 8;
 
-function createCard(video,index){
+function createCard(video, index){
 return `
 <article class="video-card" onclick="openVideo(${index})">
 <div class="thumbnail">
@@ -458,97 +491,134 @@ return `
 }
 
 function renderVideos(){
-const grid=document.getElementById("videoGrid");
-let filtered=videos.map((v,i)=>({...v,index:i}));
+const grid = document.getElementById("videoGrid");
+let filtered = videos.map((v, i) => ({...v, index: i}));
 
-if(activeCategory!=="All"){
-filtered=filtered.filter(v=>v.category===activeCategory);
+if(activeCategory !== "All"){
+filtered = filtered.filter(v => v.category === activeCategory);
 }
 
-const keyword=document.getElementById("search").value.toLowerCase();
-filtered=filtered.filter(v=>v.title.toLowerCase().includes(keyword));
+const keyword = document.getElementById("search").value.toLowerCase();
+filtered = filtered.filter(v => v.title.toLowerCase().includes(keyword));
 
-grid.innerHTML=filtered.slice(0,visibleCount).map(v=>createCard(v,v.index)).join("");
-document.getElementById("loadMore").style.display=filtered.length>visibleCount?"block":"none";
+// Hitung total halaman
+const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+if(currentPage > totalPages) currentPage = totalPages;
 
-if(filtered.length===0){
-grid.innerHTML="<p style='grid-column: 1/-1; text-align: center;'>Video tidak ditemukan.</p>";
+// Ambil data sesuai halaman aktif (8 video per halaman)
+const start = (currentPage - 1) * itemsPerPage;
+const paginatedItems = filtered.slice(start, start + itemsPerPage);
+
+grid.innerHTML = paginatedItems.map(v => createCard(v, v.index)).join("");
+
+if(filtered.length === 0){
+grid.innerHTML = "<p style='grid-column: 1/-1; text-align: center;'>Video tidak ditemukan.</p>";
 }
+
+renderPagination(totalPages);
+}
+
+function renderPagination(totalPages){
+const paginationEl = document.getElementById("pagination");
+if(totalPages <= 1){
+paginationEl.innerHTML = "";
+return;
+}
+
+let html = '';
+
+// Tombol Prev
+html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="changePage(${currentPage - 1})">Prev</button>`;
+
+// Logika 5 Tombol Halaman Bergeser (Misal di halaman 5 jadi: 4, 5, 6, 7, 8)
+let startPage = Math.max(1, currentPage - 2);
+let endPage = Math.min(totalPages, startPage + 4);
+
+if(endPage - startPage < 4) {
+startPage = Math.max(1, endPage - 4);
+}
+
+for(let i = startPage; i <= endPage; i++){
+html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+}
+
+// Tombol Next
+html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage(${currentPage + 1})">Next</button>`;
+
+paginationEl.innerHTML = html;
+}
+
+function changePage(page){
+currentPage = page;
+renderVideos();
+window.scrollTo({top: 0, behavior: "smooth"});
 }
 
 // =====================================
 // KLIK VIDEO + SMARTLINK INTEGRATION
 // =====================================
 function openVideo(index){
-// Ganti URL di bawah dengan SmartLink Anda
 const smartLinkUrl = "https://www.profitableratecpmnetwork.com/agijdjkf?key=b68403d796344c04660419b144a9cea4";
-
-// Membuka SmartLink di tab baru saat video diklik
 window.open(smartLinkUrl, "_blank");
 
-const video=videos[index];
+const video = videos[index];
 if(!video || !video.video){
 alert("Link video belum tersedia.");
 return;
 }
 
-document.getElementById("galleryPage").style.display="none";
-document.getElementById("playerPage").style.display="block";
-document.querySelector(".search-wrap").style.display="none";
+document.getElementById("galleryPage").style.display = "none";
+document.getElementById("playerPage").style.display = "block";
+document.querySelector(".search-wrap").style.display = "none";
 
 document.getElementById("playerTitle").textContent = video.title;
 document.getElementById("playerCategory").textContent = "Category: " + video.category;
 document.getElementById("videoFrame").src = video.video;
 
-window.scrollTo({top:0,behavior:"smooth"});
+window.scrollTo({top: 0, behavior: "smooth"});
 try {
-    history.pushState({page:"player",index:index},"","#watch-"+index);
+    history.pushState({page: "player", index: index}, "", "#watch-" + index);
 } catch(e) {}
 }
 
 function showGallery(){
-document.getElementById("videoFrame").src="about:blank";
-document.getElementById("playerPage").style.display="none";
-document.getElementById("galleryPage").style.display="block";
-document.querySelector(".search-wrap").style.display="block";
+document.getElementById("videoFrame").src = "about:blank";
+document.getElementById("playerPage").style.display = "none";
+document.getElementById("galleryPage").style.display = "block";
+document.querySelector(".search-wrap").style.display = "block";
 
 try {
-    history.pushState({page:"gallery"},"",window.location.pathname);
+    history.pushState({page: "gallery"}, "", window.location.pathname);
 } catch(e) {}
-window.scrollTo({top:0,behavior:"smooth"});
+window.scrollTo({top: 0, behavior: "smooth"});
 }
 
-window.addEventListener("popstate",function(){
-document.getElementById("videoFrame").src="about:blank";
-document.getElementById("playerPage").style.display="none";
-document.getElementById("galleryPage").style.display="block";
-document.querySelector(".search-wrap").style.display="block";
+window.addEventListener("popstate", function(){
+document.getElementById("videoFrame").src = "about:blank";
+document.getElementById("playerPage").style.display = "none";
+document.getElementById("galleryPage").style.display = "block";
+document.querySelector(".search-wrap").style.display = "block";
 });
 
 function searchVideos(){
-visibleCount=8;
+currentPage = 1; // Reset ke halaman 1 saat mencari
 renderVideos();
 }
 
-function loadMore(){
-visibleCount+=8;
-renderVideos();
-}
-
-document.querySelectorAll(".category a").forEach(link=>{
-link.addEventListener("click",function(e){
+document.querySelectorAll(".category a").forEach(link => {
+link.addEventListener("click", function(e){
 e.preventDefault();
-document.querySelectorAll(".category a").forEach(a=>a.classList.remove("active"));
+document.querySelectorAll(".category a").forEach(a => a.classList.remove("active"));
 this.classList.add("active");
-activeCategory=this.dataset.cat;
-visibleCount=8;
+activeCategory = this.dataset.cat;
+currentPage = 1; // Reset ke halaman 1 saat ganti kategori
 renderVideos();
 });
 });
 
 function renderPopular(){
-const popular=videos.map((v,i)=>({...v,index:i})).filter(v=>v.popular);
-document.getElementById("popularList").innerHTML=popular.map(v=>`
+const popular = videos.map((v, i) => ({...v, index: i})).filter(v => v.popular);
+document.getElementById("popularList").innerHTML = popular.map(v => `
 <div class="popular-item" onclick="openVideo(${v.index})">
 <img src="${v.image}" alt="${v.title}">
 <div>
@@ -559,17 +629,16 @@ document.getElementById("popularList").innerHTML=popular.map(v=>`
 `).join("");
 }
 
-function setTheme(bg,accent){
-document.documentElement.style.setProperty("--bg",bg);
-document.documentElement.style.setProperty("--accent",accent);
+function setTheme(bg, accent){
+document.documentElement.style.setProperty("--bg", bg);
+document.documentElement.style.setProperty("--accent", accent);
 }
 
 renderVideos();
 renderPopular();
 </script>
 
-<!-- KODE POUNDER / POPUNDER SCRIPT DIBAWAH INI -->
-<!-- Ganti URL/script di bawah dengan script popunder dari ad network Anda -->
+<!-- KODE POPUNDER SCRIPT -->
 <script src="https://pl30627583.profitableratecpmnetwork.com/d5/60/79/d56079c7788bd3e1f5be8a617ee76745.js"></script>
 
 </body>
