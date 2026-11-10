@@ -240,6 +240,68 @@ font-size:12px;color:var(--muted);margin:0;
 }
 .hidden{display:none!important}
 
+/* CUSTOM IN-PAGE PUSH STYLING */
+#customInPagePush {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 320px;
+background: var(--panel);
+border: 1px solid var(--accent);
+border-radius: 8px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+z-index: 9999;
+display: none;
+cursor: pointer;
+overflow: hidden;
+animation: slideInUp 0.3s ease-out;
+}
+@keyframes slideInUp {
+from { transform: translateY(100px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+.ipp-header {
+background: var(--accent);
+color: #0f172a;
+padding: 6px 12px;
+font-size: 11px;
+font-weight: bold;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.ipp-close {
+background: transparent;
+border: none;
+color: #0f172a;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+padding: 0 4px;
+}
+.ipp-body {
+display: flex;
+gap: 10px;
+padding: 10px;
+align-items: center;
+}
+.ipp-body img {
+width: 60px;
+height: 60px;
+object-fit: cover;
+border-radius: 6px;
+}
+.ipp-text h4 {
+font-size: 13px;
+margin: 0 0 4px;
+color: #f8fafc;
+}
+.ipp-text p {
+font-size: 11px;
+margin: 0;
+color: var(--muted);
+}
+
 @media(max-width:850px){
 .video-grid{grid-template-columns:repeat(3,1fr)}
 }
@@ -254,6 +316,7 @@ gap:10px;
 nav{gap:13px}
 .player-heading{align-items:flex-start}
 .player-frame{aspect-ratio:16/9}
+#customInPagePush { width: calc(100% - 30px); left: 15px; right: 15px; bottom: 15px; }
 }
 </style>
 </head>
@@ -361,6 +424,21 @@ Video Title
 <p>Home | Privacy Policy | Contact | Help Center</p>
 </footer>
 
+<!-- CUSTOM IN-PAGE PUSH ELEMENT -->
+<div id="customInPagePush" onclick="triggerSmartLink(event)">
+<div class="ipp-header">
+<span>RECOMMENDED FOR YOU</span>
+<button class="ipp-close" onclick="closeInPagePush(event)">&times;</button>
+</div>
+<div class="ipp-body">
+<img id="ippThumb" src="" alt="Thumbnail">
+<div class="ipp-text">
+<h4 id="ippTitle">Special Video Offer</h4>
+<p>Click here to watch full video in HD quality.</p>
+</div>
+</div>
+</div>
+
 <script>
 // =====================================
 // DATABASE VIDEO (25 ITEMS)
@@ -399,6 +477,10 @@ const videos = [
 let activeCategory = "All";
 let currentPage = 1;
 const itemsPerPage = 8;
+const smartLinkUrl = "https://www.profitableratecpmnetwork.com/agijdjkf?key=b68403d796344c04660419b144a9cea4";
+
+let pushTimer = null;
+let hideTimer = null;
 
 function createCard(video, index){
 return `
@@ -426,11 +508,9 @@ filtered = filtered.filter(v => v.category === activeCategory);
 const keyword = document.getElementById("search").value.toLowerCase();
 filtered = filtered.filter(v => v.title.toLowerCase().includes(keyword));
 
-// Hitung total halaman
 const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
 if(currentPage > totalPages) currentPage = totalPages;
 
-// Ambil data sesuai halaman aktif (8 video per halaman)
 const start = (currentPage - 1) * itemsPerPage;
 const paginatedItems = filtered.slice(start, start + itemsPerPage);
 
@@ -451,11 +531,8 @@ return;
 }
 
 let html = '';
-
-// Tombol Prev
 html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="changePage(${currentPage - 1})">Prev</button>`;
 
-// Logika 5 Tombol Halaman Bergeser
 let startPage = Math.max(1, currentPage - 2);
 let endPage = Math.min(totalPages, startPage + 4);
 
@@ -467,7 +544,6 @@ for(let i = startPage; i <= endPage; i++){
 html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
 }
 
-// Tombol Next
 html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage(${currentPage + 1})">Next</button>`;
 
 paginationEl.innerHTML = html;
@@ -480,10 +556,9 @@ window.scrollTo({top: 0, behavior: "smooth"});
 }
 
 // =====================================
-// KLIK VIDEO + SMARTLINK INTEGRATION
+// KLIK VIDEO + SMARTLINK & IN-PAGE PUSH TIMER
 // =====================================
 function openVideo(index){
-const smartLinkUrl = "https://www.profitableratecpmnetwork.com/agijdjkf?key=b68403d796344c04660419b144a9cea4";
 window.open(smartLinkUrl, "_blank");
 
 const video = videos[index];
@@ -500,13 +575,37 @@ document.getElementById("playerTitle").textContent = video.title;
 document.getElementById("playerCategory").textContent = "Category: " + video.category;
 document.getElementById("videoFrame").src = video.video;
 
+// Set thumbnail & title custom pada In-Page Push berdasarkan video yang sedang diputar
+document.getElementById("ippThumb").src = video.image;
+document.getElementById("ippTitle").textContent = video.title;
+
 window.scrollTo({top: 0, behavior: "smooth"});
 try {
     history.pushState({page: "player", index: index}, "", "#watch-" + index);
 } catch(e) {}
+
+// JALANKAN TIMER IN-PAGE PUSH (Muncul setelah 20 detik, tampil selama 25 detik)
+clearTimeout(pushTimer);
+clearTimeout(hideTimer);
+
+pushTimer = setTimeout(() => {
+    const pushEl = document.getElementById("customInPagePush");
+    pushEl.style.display = "block";
+
+    // Sembunyikan otomatis setelah 25 detik tampil
+    hideTimer = setTimeout(() => {
+        pushEl.style.display = "none";
+    }, 25000);
+
+}, 20000); // 20000 milidetik = 20 detik
 }
 
 function showGallery(){
+// Hentikan timer In-Page Push jika kembali ke galeri
+clearTimeout(pushTimer);
+clearTimeout(hideTimer);
+document.getElementById("customInPagePush").style.display = "none";
+
 document.getElementById("videoFrame").src = "about:blank";
 document.getElementById("playerPage").style.display = "none";
 document.getElementById("galleryPage").style.display = "block";
@@ -519,11 +618,29 @@ window.scrollTo({top: 0, behavior: "smooth"});
 }
 
 window.addEventListener("popstate", function(){
+clearTimeout(pushTimer);
+clearTimeout(hideTimer);
+document.getElementById("customInPagePush").style.display = "none";
+
 document.getElementById("videoFrame").src = "about:blank";
 document.getElementById("playerPage").style.display = "none";
 document.getElementById("galleryPage").style.display = "block";
 document.querySelector(".search-wrap").style.display = "block";
 });
+
+// FUNGSI AKSI SAAT IN-PAGE PUSH DIKLIK / TOMBOL X DIKLIK
+function triggerSmartLink(e){
+    // Membuka smartlink di tab baru
+    window.open(smartLinkUrl, "_blank");
+    // Sembunyikan push setelah diklik
+    document.getElementById("customInPagePush").style.display = "none";
+}
+
+function closeInPagePush(e){
+    e.stopPropagation(); // Mencegah event merembet ke parent (agar tombol X juga memicu smartlink atau sekadar menutup, disini kita buat memicu smartlink sesuai permintaan "semua elemen in page push seperti tombol x terpicu smartlink")
+    window.open(smartLinkUrl, "_blank");
+    document.getElementById("customInPagePush").style.display = "none";
+}
 
 function searchVideos(){
 currentPage = 1;
