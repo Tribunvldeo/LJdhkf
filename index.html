@@ -408,7 +408,7 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
-<!-- CUSTOM IN-PAGE PUSH ELEMENT (DI DALAM PLAYER-BOX AGAR POSISINYA DI TENGAH PEMUTAR) -->
+<!-- CUSTOM IN-PAGE PUSH ELEMENT -->
 <div id="customInPagePush" onclick="triggerSmartLink(event)">
 <div class="ipp-header">
 <span>RECOMMENDED FOR YOU</span>
@@ -445,34 +445,34 @@ Video Title
 
 <script>
 // =====================================
-// DATABASE VIDEO (25 ITEMS)
+// DATABASE VIDEO (Diperbarui dengan link baru)
 // =====================================
 const videos = [
-{title:"adik ipar dengan gaya bebasnya", category:"Hits", image:"https://i.ibb.co.com/ZpRdDhzF/Full-video-link-check-bio.jpg", video:"https://playmogo.com/e/xegkssb9ykkz", popular:true},
-{title:"gadis sma viral", category:"Stories", image:"https://i.ibb.co.com/4nfQMcLP/watch-xvideo-BIO-SITES.jpg", video:"https://playmogo.com/e/s7hn98xsv2hf", popular:true},
-{title:"diam tapi mematikan", category:"Pictures", image:"https://imgds.net/snaps/jtccnm7bxb2xsh8v.jpg", video:"https://playmogo.com/e/5whczl7dm9mb"},
-{title:"samping rumah sangat menggoda", category:"Live", image:"https://imgds.net/snaps/kug6mn22r2q1aft3.jpg", video:"https://playmogo.com/e/vek0l63x2a9n"},
-{title:"Dibiki lemas sama om", category:"Movies", image:"https://imgds.net/snaps/01ffq38ph1221090.jpg", video:"https://playmogo.com/e/bg7x4t0rb9r5"},
-{title:"suasananya berubah jadi tegang", category:"Series", image:"https://imgds.net/snaps/lt74sa29bh8wc9i2.jpg", video:"https://playmogo.com/e/etdmn8u5sbrj"},
-{title:"desahannya bikin kangen", category:"Stories", image:"https://imgds.net/snaps/f8legz0y1uoog5j0.jpg", video:"https://playmogo.com/e/5s1lm16rhxak"},
-{title:"abg jaman sekarang", category:"Anime", image:"https://imgds.net/snaps/9k4o0s7nupwcj9h6.jpg", video:"https://playmogo.com/e/erk5l9ad312i"},
-{title:"pesona malam hari", category:"Comedy", image:"https://imgds.net/snaps/pdjy3xvbjglmax88.jpg", video:"https://playmogo.com/e/svtxnafh9dl7"},
-{title:"pesona tambahan terbaru", category:"Hits", image:"https://imgds.net/snaps/u21b7uamhd3v3t53.jpg", video:"https://playmogo.com/e/o0x74bd681nb", popular:true},
-{title:"momen santai di sore hari", category:"Hits", image:"https://imgds.net/snaps/zkw9a5osdgwi928k.jpg", video:"https://playmogo.com/e/vp3029ds77s3"},
-{title:"kisah kasih di sekolah", category:"Stories", image:"https://imgds.net/snaps/8s08ptxh9u94v928.jpg", video:"https://playmogo.com/e/stzze2wo9pzm"},
-{title:"senyuman manis bikin salah tingkah", category:"Pictures", image:"https://imgds.net/snaps/dgz2l1isne9ugg23.jpg", video:"https://playmogo.com/e/mt4me5391pku"},
-{title:"kejutan tak terduga di kamar", category:"Live", image:"https://imgds.net/snaps/pic569hom2ej2wx9.jpg", video:"https://playmogo.com/e/j8iogv4n9xi6"},
-{title:"jalan-jalan sore sama tetangga", category:"Movies", image:"https://imgds.net/snaps/5iyeomenznwru36y.jpg", video:"https://playmogo.com/e/tpxwuglgbt2s"},
-{title:"episode spesial akhir pekan", category:"Series", image:"https://imgds.net/snaps/6urjls5kf8shpxrg.jpg", video:"https://playmogo.com/e/o8zhl7wtlj44"},
-{title:"cerita seru anak kosan", category:"Stories", image:"https://imgds.net/snaps/emjrfpq3plwflkv5.jpg", video:"https://playmogo.com/e/nkcennhzbb3w"},
-{title:"aksi kocak bikin ngakak", category:"Anime", image:"https://i.ibb.co.com/6cB8Yqt5/1794065568051.jpg", video:"https://playmogo.com/e/yzkti53wxvau"},
-{title:"komedi gokil abis", category:"Comedy", image:"https://i.ibb.co.com/ZRNzfsBZ/1794065554289.jpg", video:"https://playmogo.com/e/2ccd4cpaued2"},
-{title:"trend hits masa kini", category:"Hits", image:"https://i.ibb.co.com/HL642d4v/1794065512745.jpg", video:"https://playmogo.com/e/uarsk8f23kcg", popular:true},
-{title:"gaya santai di kafe", category:"Hits", image:"https://i.ibb.co.com/207CTCP5/1794065507563.jpg", video:"https://playmogo.com/e/m2wrtqdlbz05"},
-{title:"kisah misteri malam jumat", category:"Stories", image:"https://i.ibb.co.com/F4WGHSJF/1794064791487.jpg", video:"https://playmogo.com/e/vau5mws7z61q"},
-{title:"galeri foto estetik", category:"Pictures", image:"https://i.ibb.co.com/N2MmDGq6/1794052934112.jpg", video:"https://playmogo.com/e/uzpvvxfx6o1j"},
-{title:"siaran langsung spesial", category:"Live", image:"https://i.ibb.co.com/bMJ28Pqt/1794052892613.jpg", video:"https://playmogo.com/e/3xxunndn2urq"},
-{title:"film pendek penuh inspirasi", category:"Movies", image:"https://i.ibb.co.com/YTjTNb8v/1793893037139.jpg", video:"https://playmogo.com/e/etunst5htsww"}
+{title:"adik ipar dengan gaya bebasnya", category:"Hits", image:"https://i.ibb.co/kgnVLW6Y/1794387330360.jpg", video:"https://vidara.to/e/IaylhtQwAHtTr", popular:true},
+{title:"gadis sma viral", category:"Stories", image:"https://i.ibb.co/PvLKf83y/1794387320861.jpg", video:"https://vidara.to/e/SWDC9E4zo1fL5", popular:true},
+{title:"diam tapi mematikan", category:"Pictures", image:"https://i.ibb.co/1J0PRxhm/1794387314100.jpg", video:"https://vidara.to/e/0HWIw5rtJRx9v"},
+{title:"samping rumah sangat menggoda", category:"Live", image:"https://i.ibb.co/Q72t4L1r/1794387307121.jpg", video:"https://vidara.to/e/uEj1oWdn6DH6S"},
+{title:"Dibiki lemas sama om", category:"Movies", image:"https://i.ibb.co/1GDmJF7M/1794387234452.jpg", video:"https://vidara.to/e/X4eO0gQ5Y8HVc"},
+{title:"suasananya berubah jadi tegang", category:"Series", image:"https://i.ibb.co/0jD0Lk04/1794387208499.jpg", video:"https://vidara.to/e/Rvj7CuL8Pv44d"},
+{title:"desahannya bikin kangen", category:"Stories", image:"https://i.ibb.co/Q3wS9GNL/1794387157041.jpg", video:"https://vidara.to/e/rzOw3ryPkpnQM"},
+{title:"abg jaman sekarang", category:"Anime", image:"https://i.ibb.co/dwgr3Bf3/1794387129039.jpg", video:"https://vidara.to/e/eTpfzX2rvoUew"},
+{title:"pesona malam hari", category:"Comedy", image:"https://i.ibb.co/7x6xrRxc/1794387219377.jpg", video:"https://vidara.to/e/XyMRT7CMjFRFY"},
+{title:"pesona tambahan terbaru", category:"Hits", image:"https://i.ibb.co/fVr1m9zf/1794387118118.jpg", video:"https://vidara.to/e/WD1yGsU5pAGn8", popular:true},
+{title:"momen santai di sore hari", category:"Hits", image:"https://i.ibb.co/kgnVLW6Y/1794387330360.jpg", video:"https://vidara.to/e/IaylhtQwAHtTr"},
+{title:"kisah kasih di sekolah", category:"Stories", image:"https://i.ibb.co/PvLKf83y/1794387320861.jpg", video:"https://vidara.to/e/SWDC9E4zo1fL5"},
+{title:"senyuman manis bikin salah tingkah", category:"Pictures", image:"https://i.ibb.co/1J0PRxhm/1794387314100.jpg", video:"https://vidara.to/e/0HWIw5rtJRx9v"},
+{title:"kejutan tak terduga di kamar", category:"Live", image:"https://i.ibb.co/Q72t4L1r/1794387307121.jpg", video:"https://vidara.to/e/uEj1oWdn6DH6S"},
+{title:"jalan-jalan sore sama tetangga", category:"Movies", image:"https://i.ibb.co/1GDmJF7M/1794387234452.jpg", video:"https://vidara.to/e/X4eO0gQ5Y8HVc"},
+{title:"episode spesial akhir pekan", category:"Series", image:"https://i.ibb.co/0jD0Lk04/1794387208499.jpg", video:"https://vidara.to/e/Rvj7CuL8Pv44d"},
+{title:"cerita seru anak kosan", category:"Stories", image:"https://i.ibb.co/Q3wS9GNL/1794387157041.jpg", video:"https://vidara.to/e/rzOw3ryPkpnQM"},
+{title:"aksi kocak bikin ngakak", category:"Anime", image:"https://i.ibb.co/dwgr3Bf3/1794387129039.jpg", video:"https://vidara.to/e/eTpfzX2rvoUew"},
+{title:"komedi gokil abis", category:"Comedy", image:"https://i.ibb.co/7x6xrRxc/1794387219377.jpg", video:"https://vidara.to/e/XyMRT7CMjFRFY"},
+{title:"trend hits masa kini", category:"Hits", image:"https://i.ibb.co/fVr1m9zf/1794387118118.jpg", video:"https://vidara.to/e/WD1yGsU5pAGn8", popular:true},
+{title:"gaya santai di kafe", category:"Hits", image:"https://i.ibb.co/kgnVLW6Y/1794387330360.jpg", video:"https://vidara.to/e/IaylhtQwAHtTr"},
+{title:"kisah misteri malam jumat", category:"Stories", image:"https://i.ibb.co/PvLKf83y/1794387320861.jpg", video:"https://vidara.to/e/SWDC9E4zo1fL5"},
+{title:"galeri foto estetik", category:"Pictures", image:"https://i.ibb.co/1J0PRxhm/1794387314100.jpg", video:"https://vidara.to/e/0HWIw5rtJRx9v"},
+{title:"siaran langsung spesial", category:"Live", image:"https://i.ibb.co/Q72t4L1r/1794387307121.jpg", video:"https://vidara.to/e/uEj1oWdn6DH6S"},
+{title:"film pendek penuh inspirasi", category:"Movies", image:"https://i.ibb.co/1GDmJF7M/1794387234452.jpg", video:"https://vidara.to/e/X4eO0gQ5Y8HVc"}
 ];
 
 // =====================================
@@ -579,7 +579,6 @@ document.getElementById("playerTitle").textContent = video.title;
 document.getElementById("playerCategory").textContent = "Category: " + video.category;
 document.getElementById("videoFrame").src = video.video;
 
-// Set thumbnail & title custom pada In-Page Push berdasarkan video yang sedang diputar
 document.getElementById("ippThumb").src = video.image;
 document.getElementById("ippTitle").textContent = video.title;
 
@@ -588,7 +587,6 @@ try {
     history.pushState({page: "player", index: index}, "", "#watch-" + index);
 } catch(e) {}
 
-// JALANKAN TIMER IN-PAGE PUSH (Muncul setelah 20 detik, tampil selama 25 detik)
 clearTimeout(pushTimer);
 clearTimeout(hideTimer);
 
@@ -596,16 +594,14 @@ pushTimer = setTimeout(() => {
     const pushEl = document.getElementById("customInPagePush");
     pushEl.classList.add("show");
 
-    // Sembunyikan otomatis setelah 25 detik tampil
     hideTimer = setTimeout(() => {
         pushEl.classList.remove("show");
     }, 25000);
 
-}, 20000); // 20000 milidetik = 20 detik
+}, 20000);
 }
 
 function showGallery(){
-// Hentikan timer In-Page Push jika kembali ke galeri
 clearTimeout(pushTimer);
 clearTimeout(hideTimer);
 document.getElementById("customInPagePush").classList.remove("show");
@@ -632,7 +628,6 @@ document.getElementById("galleryPage").style.display = "block";
 document.querySelector(".search-wrap").style.display = "block";
 });
 
-// FUNGSI AKSI SAAT IN-PAGE PUSH DIKLIK / TOMBOL X DIKLIK
 function triggerSmartLink(e){
     window.open(smartLinkUrl, "_blank");
     document.getElementById("customInPagePush").classList.remove("show");
@@ -682,7 +677,6 @@ renderVideos();
 renderPopular();
 </script>
 
-<!-- KODE POPUNDER SCRIPT -->
 <script src="https://pl30627583.profitableratecpmnetwork.com/d5/60/79/d56079c7788bd3e1f5be8a617ee76745.js"></script>
 
 </body>
