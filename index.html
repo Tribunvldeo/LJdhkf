@@ -9,14 +9,14 @@
 
 <style>
 :root{
---bg:#090d16;
---panel:#131d31;
---card:#1e293b;
---text:#f8fafc;
---muted:#94a3b8;
---accent:#6366f1;
---accent-hover:#4f46e5;
---secondary:#ec4899;
+--bg:#140810;
+--panel:#210d1a;
+--card:#2e1325;
+--text:#fdf2f8;
+--muted:#d4a5bf;
+--accent:#ec4899;
+--accent-hover:#db2777;
+--secondary:#f472b6;
 }
 *{box-sizing:border-box}
 body{
@@ -26,8 +26,8 @@ font-family:Arial,sans-serif;
 }
 a{text-decoration:none;color:inherit}
 header{
-background:#090d16;
-border-bottom:1px solid #1e293b;
+background:var(--panel);
+border-bottom:1px solid rgba(236,72,153,0.25);
 position:sticky;top:0;z-index:20;
 }
 .topbar{
@@ -38,21 +38,21 @@ justify-content:space-between;flex-wrap:wrap;gap:15px;
 .logo{font-size:23px;font-weight:bold;letter-spacing:0.5px}
 .logo span{color:var(--accent)}
 nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{font-size:13px;color:#cbd5e1;transition:.2s}
+nav a{font-size:13px;color:#f9a8d4;transition:.2s;font-weight:500}
 nav a:hover{color:var(--accent)}
 .search-wrap{
 max-width:1200px;margin:auto;padding:0 15px 14px;
 }
 .search{
 width:100%;padding:13px;
-border:1px solid #334155;
-background:#131d31;color:white;
+border:1px solid rgba(236,72,153,0.35);
+background:var(--card);color:white;
 border-radius:7px;font-size:14px;outline:none;
 transition:.2s;
 }
 .search:focus{
 border-color:var(--accent);
-box-shadow:0 0 0 2px rgba(99,102,241,0.25);
+box-shadow:0 0 0 2px rgba(236,72,153,0.3);
 }
 .container{
 max-width:1200px;margin:auto;padding:18px 15px;
@@ -64,11 +64,12 @@ padding:5px 0 18px;scrollbar-width:none;
 .category a{
 white-space:nowrap;background:var(--panel);
 padding:10px 15px;border-radius:5px;
-font-size:13px;color:#cbd5e1;
+font-size:13px;color:#f9a8d4;
+border:1px solid rgba(236,72,153,0.15);
 transition:.2s;
 }
 .category a.active,.category a:hover{
-background:var(--accent);color:#ffffff;font-weight:bold;
+background:var(--accent);color:#ffffff;font-weight:bold;border-color:var(--accent);
 }
 .section-title{
 font-size:19px;margin:15px 0;
@@ -86,16 +87,16 @@ gap:16px;
 .video-card{
 background:var(--card);border-radius:8px;
 overflow:hidden;cursor:pointer;transition:.2s;
-border:1px solid rgba(255,255,255,0.05);
+border:1px solid rgba(236,72,153,0.18);
 }
 .video-card:hover{
 transform:translateY(-4px);
-box-shadow:0 10px 20px rgba(0,0,0,0.3);
+box-shadow:0 10px 20px rgba(236,72,153,0.2);
 border-color:var(--accent);
 }
 .thumbnail{
 width:100%;aspect-ratio:16/10;
-position:relative;background:#1e293b;overflow:hidden;
+position:relative;background:var(--panel);overflow:hidden;
 }
 .thumbnail img{
 width:100%;height:100%;object-fit:cover;
@@ -103,15 +104,15 @@ width:100%;height:100%;object-fit:cover;
 .play-icon{
 position:absolute;left:50%;top:50%;
 transform:translate(-50%,-50%);
-background:rgba(99,102,241,0.85);border-radius:50%;
+background:rgba(236,72,153,0.9);border-radius:50%;
 width:48px;height:48px;
 display:grid;place-items:center;
 font-size:21px;color:#ffffff;
-box-shadow:0 0 12px rgba(99,102,241,0.5);
+box-shadow:0 0 12px rgba(236,72,153,0.55);
 }
 .video-info{padding:12px}
 .video-info h3{
-font-size:14px;line-height:1.4;margin:0 0 7px;color:#f8fafc;
+font-size:14px;line-height:1.4;margin:0 0 7px;color:var(--text);
 }
 .video-info p{
 font-size:11px;color:var(--muted);margin:0;
@@ -133,8 +134,8 @@ flex-wrap:wrap;
 }
 .page-btn{
 background:var(--panel);
-border:1px solid #334155;
-color:#cbd5e1;
+border:1px solid rgba(236,72,153,0.3);
+color:#f9a8d4;
 padding:8px 14px;
 border-radius:6px;
 cursor:pointer;
@@ -158,45 +159,45 @@ cursor:not-allowed;
 }
 .page-btn:disabled:hover{
 background:var(--panel);
-color:#cbd5e1;
-border-color:#334155;
+color:#f9a8d4;
+border-color:rgba(236,72,153,0.3);
 }
 
 .popular{
 margin-top:35px;background:var(--panel);
 padding:16px;border-radius:8px;
-border:1px solid #1e293b;
+border:1px solid rgba(236,72,153,0.22);
 }
 .popular-item{
 display:flex;align-items:center;gap:12px;
-padding:10px 0;border-bottom:1px solid #1e293b;
+padding:10px 0;border-bottom:1px solid rgba(236,72,153,0.15);
 cursor:pointer;transition:.2s;
 }
 .popular-item:hover{
-background:rgba(255,255,255,0.03);
+background:rgba(236,72,153,0.08);
 }
 .popular-item img{
 width:90px;height:58px;object-fit:cover;
 border-radius:4px;
 }
-.popular-item h4{font-size:13px;margin:0 0 5px;color:#f8fafc}
+.popular-item h4{font-size:13px;margin:0 0 5px;color:var(--text)}
 .popular-item small{color:var(--muted)}
 footer{
 margin-top:35px;padding:25px 15px;
-background:#05070d;text-align:center;
+background:#0c0409;text-align:center;
 color:var(--muted);font-size:12px;
-border-top:1px solid #131d31;
+border-top:1px solid rgba(236,72,153,0.2);
 }
 .theme-buttons{
 display:flex;gap:8px;flex-wrap:wrap;margin:15px 0;
 }
 .theme-buttons button{
-border:0;padding:8px 13px;border-radius:5px;
-cursor:pointer;background:#131d31;color:white;
+border:1px solid rgba(236,72,153,0.25);padding:8px 13px;border-radius:5px;
+cursor:pointer;background:var(--panel);color:#fbcfe8;
 font-weight:500;transition:.2s;
 }
 .theme-buttons button:hover{
-background:var(--accent);color:#ffffff;
+background:var(--accent);color:#ffffff;border-color:var(--accent);
 }
 
 /* PEMUTAR VIDEO */
@@ -211,6 +212,9 @@ border:0;background:var(--accent);
 color:#ffffff;padding:10px 16px;
 border-radius:5px;cursor:pointer;font-weight:bold;
 }
+.back-button:hover{
+background:var(--accent-hover);
+}
 
 /* CONTAINER PEMUTAR */
 .player-box{
@@ -223,7 +227,7 @@ width:100%;aspect-ratio:16/9;
 border:0;display:block;background:#000;
 }
 .player-title{
-font-size:18px;margin:15px 0 7px;color:#f8fafc;
+font-size:18px;margin:15px 0 7px;color:var(--text);
 }
 .player-category{
 font-size:12px;color:var(--muted);
@@ -231,11 +235,11 @@ margin-bottom:15px;
 }
 .push-area{
 margin:18px 0;padding:15px;
-border:1px solid #1e293b;
+border:1px solid rgba(236,72,153,0.22);
 background:var(--panel);
 border-radius:7px;
 }
-.push-area h3{font-size:14px;margin:0 0 8px;color:#f8fafc}
+.push-area h3{font-size:14px;margin:0 0 8px;color:var(--text)}
 .push-area p{
 font-size:12px;color:var(--muted);margin:0;
 }
@@ -298,7 +302,7 @@ border-radius: 6px;
 .ipp-text h4 {
 font-size: 13px;
 margin: 0 0 4px;
-color: #f8fafc;
+color: var(--text);
 }
 .ipp-text p {
 font-size: 11px;
@@ -362,9 +366,9 @@ oninput="searchVideos()">
 </div>
 
 <div class="theme-buttons">
-<button onclick="setTheme('#090d16','#6366f1')">Default (Indigo)</button>
-<button onclick="setTheme('#0b0f19','#e84b63')">Crimson Dark</button>
-<button onclick="setTheme('#181024','#a855f7')">Electric Purple</button>
+<button onclick="setTheme('#140810','#ec4899')">Default (Pink)</button>
+<button onclick="setTheme('#1f0714','#f43f5e')">Rose Pink</button>
+<button onclick="setTheme('#18091c','#d946ef')">Neon Magenta</button>
 <button onclick="setTheme('#061c14','#10b981')">Emerald Green</button>
 <button onclick="setTheme('#1c1305','#f59e0b')">Warm Amber</button>
 </div>
@@ -449,16 +453,16 @@ Video Title
 // DATABASE VIDEO (Diperbarui dengan link video baru)
 // =====================================
 const videos = [
-{title:"adik ipar dengan gaya bebasnya", category:"Hits", image:"https://i.ibb.co/mVVXfCgd/1794583724710.jpg", video:"https://playmogo.com/e/jimunqekj8oz", popular:true},
-{title:"gadis sma viral", category:"Stories", image:"https://i.ibb.co/nq6QkZVY/1794583732461.jpg", video:"https://playmogo.com/e/uc8x7ux368fz", popular:true},
-{title:"diam tapi mematikan", category:"Pictures", image:"https://i.ibb.co/VYDn1rXK/1794583813048.jpg", video:"https://playmogo.com/e/wzmzbplpkfj7"},
-{title:"samping rumah sangat menggoda", category:"Live", image:"https://i.ibb.co/svfB7gKg/1794583850902.jpg", video:"https://playmogo.com/e/34xujioloyuj"},
-{title:"Dibiki lemas sama om", category:"Movies", image:"https://i.ibb.co/B5w2998M/1794587343921.jpg", video:"https://playmogo.com/e/3ekxvssyk2yj", popular:true},
-{title:"suasananya berubah jadi tegang", category:"Series", image:"https://i.ibb.co/GQWSbDn1/1794588046387.jpg", video:"https://playmogo.com/e/c304arwbktmt"},
-{title:"desahannya bikin kangen", category:"Stories", image:"https://i.ibb.co/tMcsWdrQ/1794590507166.jpg", video:"https://playmogo.com/e/e5yy7bixtbtq"},
-{title:"abg jaman sekarang", category:"Anime", image:"https://i.ibb.co/BKThCtfh/1794590512855.jpg", video:"https://playmogo.com/e/unb3j90ewy6z"},
-{title:"pesona malam hari", category:"Comedy", image:"https://i.ibb.co/Xf5cDLg1/1794590517081.jpg", video:"https://playmogo.com/e/zkl1g3ab0gsi"},
-{title:"pesona tambahan terbaru", category:"Hits", image:"https://i.ibb.co/m5xHcqKY/1794590525258.jpg", video:"https://playmogo.com/e/tfkloihcub74", popular:true}
+{title:"adik ipar dengan gaya bebasnya", category:"Hits", image:"https://i.ibb.co/mVVXfCgd/1794583724710.jpg", video:"https://playmogo.com/e/8odfzqtecpzk", popular:true},
+{title:"gadis sma viral", category:"Stories", image:"https://i.ibb.co/nq6QkZVY/1794583732461.jpg", video:"https://playmogo.com/e/g2m6nrg5ue6m", popular:true},
+{title:"diam tapi mematikan", category:"Pictures", image:"https://i.ibb.co/VYDn1rXK/1794583813048.jpg", video:"https://playmogo.com/e/tm6kxks2zn7b"},
+{title:"samping rumah sangat menggoda", category:"Live", image:"https://i.ibb.co/svfB7gKg/1794583850902.jpg", video:"https://playmogo.com/e/l85gvz9i3h09"},
+{title:"Dibiki lemas sama om", category:"Movies", image:"https://i.ibb.co/B5w2998M/1794587343921.jpg", video:"https://playmogo.com/e/2byhkr9zw2cm", popular:true},
+{title:"suasananya berubah jadi tegang", category:"Series", image:"https://i.ibb.co/GQWSbDn1/1794588046387.jpg", video:"https://playmogo.com/e/6ifa3suy3ull"},
+{title:"desahannya bikin kangen", category:"Stories", image:"https://i.ibb.co/tMcsWdrQ/1794590507166.jpg", video:"https://playmogo.com/e/h4czhifds5d2"},
+{title:"abg jaman sekarang", category:"Anime", image:"https://i.ibb.co/BKThCtfh/1794590512855.jpg", video:"https://playmogo.com/e/5o5aopy9qmlu"},
+{title:"pesona malam hari", category:"Comedy", image:"https://i.ibb.co/Xf5cDLg1/1794590517081.jpg", video:"https://playmogo.com/e/yga5ey3rozfn"},
+{title:"pesona tambahan terbaru", category:"Hits", image:"https://i.ibb.co/m5xHcqKY/1794590525258.jpg", video:"https://playmogo.com/e/mj7llv1wlrh4", popular:true}
 ];
 
 // =====================================
@@ -662,8 +666,6 @@ document.documentElement.style.setProperty("--accent", accent);
 renderVideos();
 renderPopular();
 </script>
-
-
 
 </body>
 </html>
